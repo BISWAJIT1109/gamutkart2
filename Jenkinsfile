@@ -2,7 +2,7 @@ pipeline {
     agent any
 
 	tools {
-		maven 'maven3.6.1'
+		maven 'maven 3.6.1'
 	}
 
 //	environment {
@@ -28,7 +28,7 @@ pipeline {
 		stage('Deployment') {
 	    	steps {
 				sh 'sshpass -p "smartvalue99" scp target/gamutkart.war gamut@172.17.0.2:/home/gamut/Distros/apache-tomcat-8.5.43/webapps'
-				sh 'sshpass -p "gamut" ssh gamut@172.17.0.2 "JAVA_HOME=/home/gamut/Distros/jdk1.8.0_211" "/home/gamut/Distros/apache-tomcat-8.5.43/bin/startup.sh"'
+				sh 'sshpass -p "smartvalue99" ssh gamut@172.17.0.2 "JAVA_HOME=/home/gamut/Distros/jdk1.8.0_211" "/home/gamut/Distros/apache-tomcat-8.5.43/bin/startup.sh"'
 	    	}
 		}
     }
